@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Business Forum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* GLOBAL */
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+    body{background:#f9f9f9;color:#333;line-height:1.6}
+    a{text-decoration:none;color:inherit;cursor:pointer;}
+
+    /* HEADER HERO */
+    header{
+      background:linear-gradient(135deg,#004aad,#25aae1);
+      color:#fff;padding:120px 20px 80px;text-align:center;position:relative;transition:0.3s;
+    }
+    header h1{font-size:3.5rem;margin-bottom:15px;font-weight:700;letter-spacing:1px;transition:0.3s}
+    header p{font-size:1.3rem;font-weight:500;transition:0.3s}
+
+    /* NAVIGATION */
+    nav{
+      position:sticky;top:0;z-index:100;display:flex;justify-content:center;align-items:center;
+      padding:15px 20px;transition:0.3s;background:rgba(0,48,128,0.9);backdrop-filter:blur(8px);box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+    .nav-links{display:flex;gap:25px;justify-content:center;align-items:center;}
+    .nav-links a{color:#fff;font-weight:600;padding:8px 15px;border-radius:5px;transition:0.3s;}
+    .nav-links a:hover{background:#ffdd00;color:#003080;}
+    .hamburger{display:none;flex-direction:column;cursor:pointer;gap:4px;position:absolute;right:20px}
+    .hamburger div{width:25px;height:3px;background:#fff;}
+    @media(max-width:768px){
+      .nav-links{display:none;flex-direction:column;background:#003080;position:absolute;top:60px;right:0;width:200px;padding:20px;border-radius:0 0 0 10px;text-align:center}
+      .nav-links.active{display:flex}
+      .hamburger{display:flex}
+    }
+
+    /* SHRINK HEADER ON SCROLL */
+    .shrink header{padding:60px 20px 40px;}
+    .shrink header h1{font-size:2rem;}
+    .shrink header p{font-size:1rem;}
+
+    /* SECTIONS */
+    section{padding:80px 20px;max-width:1100px;margin:auto}
+    h2{text-align:center;margin-bottom:50px;font-size:2.4rem;color:#004aad;font-weight:700}
+    p{max-width:800px;margin:auto;text-align:center;font-size:1.1rem}
+
+    /* MEMBERS */
+    .members{display:flex;flex-wrap:wrap;justify-content:center;gap:30px}
+    .member-card{background:#fff;padding:25px;border-radius:15px;width:250px;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,0.1);transition:0.3s}
+    .member-card:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+    .member-card img{width:120px;height:120px;border-radius:50%;margin-bottom:15px;object-fit:cover}
+    .member-card h3{margin-bottom:5px;color:#003080;font-weight:600}
+    .member-card p{font-size:0.95rem;color:#555}
+
+    /* WHATSAPP */
+    .whatsapp{text-align:center;background:#25D366;color:#fff;padding:50px 20px;border-radius:15px;margin:50px auto;max-width:600px;box-shadow:0 6px 20px rgba(0,0,0,0.1);}
+    .whatsapp a{display:inline-block;padding:15px 35px;background:#128C7E;color:#fff;font-weight:700;border-radius:10px;margin-top:20px;transition:0.3s}
+    .whatsapp a:hover{background:#075E54}
+
+    /* EVENTS */
+    .events{display:flex;flex-wrap:wrap;gap:30px;justify-content:center}
+    .event-card{background:#fff;padding:25px;border-radius:15px;width:300px;box-shadow:0 6px 20px rgba(0,0,0,0.1);transition:0.3s}
+    .event-card:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+    .event-card h3{color:#004aad;margin-bottom:10px;font-weight:600}
+    .event-card p{font-size:0.95rem;margin-bottom:5px}
+
+    /* EVENT REGISTRATION */
+    .event-registration{max-width:600px;margin:50px auto;background:#fff;padding:30px;border-radius:15px;box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+    .event-registration h3{text-align:center;color:#004aad;margin-bottom:25px;font-weight:700}
+    .event-registration form{display:flex;flex-direction:column;gap:15px}
+    .event-registration input,.event-registration select{padding:12px;border-radius:8px;border:1px solid #ccc;width:100%}
+    .event-registration button{padding:15px;border:none;background:#004aad;color:#fff;font-weight:700;border-radius:8px;cursor:pointer;transition:0.3s}
+    .event-registration button:hover{background:#003080}
+
+    /* CONTACT */
+    .contact p{text-align:center;margin-bottom:15px}
+    .contact form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px}
+    .contact input,.contact textarea{padding:12px;border-radius:8px;border:1px solid #ccc;background:#fff;color:#333}
+    .contact button{padding:15px;border:none;background:#004aad;color:#fff;font-weight:700;border-radius:8px;cursor:pointer;transition:0.3s}
+    .contact button:hover{background:#003080}
+
+    /* FOOTER */
+    footer{text-align:center;padding:20px;background:#003080;color:#fff;margin-top:50px;font-weight:500}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){.members,.events{flex-direction:column;align-items:center}}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER HERO -->
+  <header id="home">
+    <h1>Global Business Forum</h1>
+    
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-links" id="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#members">Members</a>
+      <a href="#whatsapp">Community</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Global Business Forum empowers small business owners in Akola, Maharashtra by providing networking opportunities, growth programs, workshops, and a vibrant community.</p>
+  </section>
+
+ 
+
+  <!-- WHATSAPP -->
+  <section id="whatsapp" class="whatsapp">
+    <h2>Join Our WhatsApp Community</h2>
+    <p>Connect with 500+ small business owners, share your products, and grow together.</p>
+    <a href="https://chat.whatsapp.com/GT0ubR15biDHz1fDUE6oTA?mode=ac_t" target="_blank">Join WhatsApp Group</a>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <div class="events">
+      <div class="event-card">
+        <h3>Networking Meet</h3>
+        <p>Date: 30th Oct 2025</p>
+        <p>Venue: Akola Community Hall</p>
+      </div>
+      <div class="event-card">
+        <h3>Business Workshop</h3>
+        <p>Date: 15th Nov 2025</p>
+        <p>Venue: Zoom Online</p>
+      </div>
+    </div>
+
+    <h2>Past Events</h2>
+    <div class="events">
+      <div class="event-card">
+        <h3>Startup Seminar</h3>
+        <p>Date: 20th Sep 2025</p>
+        <p>Venue: Akola Conference Hall</p>
+      </div>
+      <div class="event-card">
+        <h3>Marketing Workshop</h3>
+        <p>Date: 5th Sep 2025</p>
+        <p>Venue: Online Zoom</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT REGISTRATION -->
+  <div class="event-registration">
+    <h3>Register for Event</h3>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <select required>
+        <option value="">Select Event</option>
+         <option value="business-workshop">Business Workshop</option>
+      </select>
+      <button type="submit">Register Now</button>
+    </form>
+  </div>
+   <!-- MEMBERS -->
+  <section id="members">
+    <h2>Our Members</h2>
+    <div class="members">
+      <div class="member-card">
+        <img src="image/img1.jpg" alt="Member">
+        <h3>John Doe</h3>
+        <p>Founder & Mentor</p>
+      </div>
+      <div class="member-card">
+        <img src="image/img1.jpg" alt="Member">
+        <h3>Jane Smith</h3>
+        <p>Business Coach</p>
+      </div>
+      <div class="member-card">
+        <img src="image/img1.jpg" alt="Member">
+        <h3>Ravi Kumar</h3>
+        <p>Community Manager</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@gbfakola.org | Phone: +91-9876543210</p>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>&copy; 2025 Global Business Forum, Akola, Maharashtra. All Rights Reserved.</footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', ()=>{navLinks.classList.toggle('active')});
+
+    // Header shrink on scroll
+    window.addEventListener('scroll', ()=>{
+      if(window.scrollY > 50){document.body.classList.add('shrink');}
+      else{document.body.classList.remove('shrink');}
+    });
+  </script>
+
+</body>
+</html>
